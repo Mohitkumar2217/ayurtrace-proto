@@ -1,5 +1,5 @@
-blockchain\package-lock.json
-blockchain\node_modules
-blockchain\cache
-blockchain\blockchain
-blockchain\artifacts
+package-lock.json
+node_modules
+cache
+blockchain
+artifacts
