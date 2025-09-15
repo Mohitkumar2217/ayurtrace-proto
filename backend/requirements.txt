@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+python-multipart
+web3
+pydantic
+python-dotenv
+requests
