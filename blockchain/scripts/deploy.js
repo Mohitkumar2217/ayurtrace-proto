@@ -1,11 +1,14 @@
 async function main() {
-  const GreenToken = await ethers.getContractFactory("GreenToken");
-  const token = await GreenToken.deploy(1000); // initial supply = 1000 tokens
-  await token.deployed();
-  console.log("✅ GreenToken deployed to:", token.address);
+  const [deployer] = await ethers.getSigners();
+  console.log("Deploying with:", deployer.address);
+
+  const PlantBatch = await ethers.getContractFactory("PlantBatch");
+  const pb = await PlantBatch.deploy();
+  await pb.deployed();
+  console.log("PlantBatch deployed to:", pb.address);
 }
 
-main().catch((error) => {
-  console.error(error);
+main().catch((err) => {
+  console.error(err);
   process.exitCode = 1;
 });

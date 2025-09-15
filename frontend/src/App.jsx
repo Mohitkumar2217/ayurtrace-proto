@@ -1,4 +1,4 @@
-import BinScan from "./components/BinScan";
+import BinScan from "../components/BinScan";
 import Dashboard from "./pages/Dashboard";
 
 export default function App() {
