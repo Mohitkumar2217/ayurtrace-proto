@@ -1,0 +1,35 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_20-42febd524d050baf3c21dde618800dea0f7575af",
+  "solcVersion": "0.8.20",
+  "solcLongVersion": "0.8.20+commit.a1b79de6",
+  "userSourceNameMap": {
+    "contracts/GreenToken.sol": "project/contracts/GreenToken.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "shanghai",
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/GreenToken.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract GreenToken {\r\n    string public name = \"GreenToken\";\r\n    string public symbol = \"GT\";\r\n    uint8 public decimals = 18;\r\n    uint public totalSupply;\r\n\r\n    mapping(address => uint) public balanceOf;\r\n\r\n    event Transfer(address indexed from, address indexed to, uint value);\r\n\r\n    constructor(uint initialSupply) {\r\n        totalSupply = initialSupply * 10 ** uint(decimals);\r\n        balanceOf[msg.sender] = totalSupply;\r\n    }\r\n\r\n    function transfer(address to, uint value) public returns (bool success) {\r\n        require(balanceOf[msg.sender] >= value, \"Not enough tokens\");\r\n        balanceOf[msg.sender] -= value;\r\n        balanceOf[to] += value;\r\n        emit Transfer(msg.sender, to, value);\r\n        return true;\r\n    }\r\n}\r\n"
+      }
+    }
+  }
+}
